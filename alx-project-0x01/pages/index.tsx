@@ -1,7 +1,26 @@
+import Header from "@/components/layout/Header";
+
 const Home: React.FC = () => {
   return (
-    <div className=" h-screen flex items-center justify-center">
-      <h1 className="text-7xl font-thin">Welcome Page</h1>
+    <div className=" h-screen flex flex-col">
+      <Header />
+
+      <main className="bg-gradient-to-r from-blue-500 to-purple-600 flex-grow flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-5xl font-bold text-white">
+            Welcome to our Application
+          </h1>
+
+          <p className="text-xl text-white mt-4">
+            We&apos;re glad you&apos;re here. Explore and enjoy your experience.
+          </p>
+
+          <button className="bg-white hover:bg-gray-200 rounded-full px-6 py-3 mt-6 text-blue-500 font-semibold transition">
+            {" "}
+            Get Started
+          </button>
+        </div>
+      </main>
     </div>
   );
 };
