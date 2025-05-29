@@ -9,6 +9,10 @@ export interface PostPageProps {
   posts: PostProps[];
 }
 
+export interface UserPageProps {
+  users: UserProps[];
+}
+
 export interface UserProps {
   id: number;
   name: string;
