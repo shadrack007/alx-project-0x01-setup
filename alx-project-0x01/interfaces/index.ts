@@ -5,6 +5,10 @@ export interface PostProps {
   body: string;
 }
 
+export interface PostPageProps {
+  posts: PostProps[];
+}
+
 export interface UserProps {
   id: number;
   name: string;
