@@ -62,7 +62,7 @@ const Users: React.FC<UserPageProps> = ({ users }) => {
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
-          <div className="bg-white w-1/2 p-8 rounded-3xl">
+          <div className="bg-white w-1/2 max-h-[85vh] overflow-y-auto p-8 rounded-3xl shadow-lg">
             <UserModal
               onClose={() => setModalOpen(false)}
               onSubmit={handleAddUser}

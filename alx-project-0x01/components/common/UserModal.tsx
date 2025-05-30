@@ -43,7 +43,7 @@ const UserModal: React.FC<UserModalProps> = ({ onSubmit, onClose }) => {
     onClose();
   };
   return (
-    <div>
+    <div className="p-2 py-8 overflow-scroll">
       <div>
         <h2>Add New User</h2>
 
