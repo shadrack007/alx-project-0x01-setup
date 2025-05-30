@@ -7,7 +7,7 @@ import PostModal from "@/components/common/PostModal";
 const Post: React.FC<PostPageProps> = ({ posts }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [post, setPost] = useState<PostProps | null>(null);
+  const [post, setPost] = useState<PostData | null>(null);
 
   const handleAddPost = (newPost: PostData) => {
     setPost({ ...newPost, id: posts.length + 1 });
