@@ -1,9 +1,18 @@
+import { useState } from "react";
 import PostCard from "@/components/common/PostCard";
 import Header from "@/components/layout/Header";
-import { PostPageProps, PostProps } from "@/interfaces";
+import { PostData, PostPageProps, PostProps } from "@/interfaces";
+import PostModal from "@/components/common/PostModal";
 
 const Post: React.FC<PostPageProps> = ({ posts }) => {
-  console.log(posts);
+  const [isModalOpen, setModalOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [post, setPost] = useState<PostProps | null>(null);
+
+  const handleAddPost = (newPost: PostData) => {
+    setPost({ ...newPost, id: posts.length + 1 });
+  };
+
   return (
     <div className="flex flex-col h-screen">
       <Header />
@@ -11,7 +20,10 @@ const Post: React.FC<PostPageProps> = ({ posts }) => {
       <main className="p-4">
         <div className="flex justify-between">
           <h1 className="text-2xl font-semibold">Post Content</h1>
-          <button className="bg-blue-700 px-4 py-2 rounded-full text-white">
+          <button
+            onClick={() => setModalOpen(true)}
+            className="bg-blue-700 px-4 py-2 rounded-full hover:bg-white cursor-pointer hover:text-blue-700 text-white"
+          >
             Add Post
           </button>
         </div>
@@ -28,6 +40,16 @@ const Post: React.FC<PostPageProps> = ({ posts }) => {
           ))}
         </div>
       </main>
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+          <div className="bg-white w-1/2 p-8 rounded-3xl">
+            <PostModal
+              onClose={() => setModalOpen(false)}
+              onSubmit={handleAddPost}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
