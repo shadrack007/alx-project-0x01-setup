@@ -50,7 +50,7 @@ export interface PostData {
   body: string;
 }
 
-export interface PostModelProps {
+export interface PostModalProps {
   onClose: () => void;
   onSubmit: (data: PostData) => void;
 }
